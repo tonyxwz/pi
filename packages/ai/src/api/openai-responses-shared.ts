@@ -82,7 +82,7 @@ function convertToolResultOutput<TApi extends Api>(
 	const hasText = textResult.length > 0;
 
 	if (images.length === 0 || !model.input.includes("image")) {
-		return sanitizeSurrogates(hasText ? textResult : "(see attached image)");
+		return sanitizeSurrogates(hasText ? textResult : images.length > 0 ? "(see attached image)" : "(no tool output)");
 	}
 
 	const output: ToolResultOutputContent = [];
